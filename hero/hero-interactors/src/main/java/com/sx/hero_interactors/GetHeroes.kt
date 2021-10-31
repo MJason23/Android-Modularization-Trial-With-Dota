@@ -5,6 +5,7 @@ import com.sx.core.ProgressBarState
 import com.sx.core.UIComponent
 import com.sx.hero_datasource.network.HeroService
 import com.sx.hero_domain.Hero
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
@@ -17,7 +18,7 @@ class GetHeroes(
 ) {
     fun execute(): Flow<DataState<Heroes>> = flow {
         try {
-            emit(DataState.Loading(progressBarState = ProgressBarState.Loading))
+            emit(DataState.Loading<Heroes>(progressBarState = ProgressBarState.Loading))
 
             val heroes: Heroes = getHeroesFromRemote(this)
             //TODO: Get Heroes from Cache
@@ -26,7 +27,7 @@ class GetHeroes(
         } catch (e: Exception) {
             e.printStackTrace()
             emit(
-                buildErrorResponse(e, "Error")
+                buildErrorResponse<Heroes>(e, "Error")
             )
         } finally {
             emit(DataState.Loading(progressBarState = ProgressBarState.Idle))

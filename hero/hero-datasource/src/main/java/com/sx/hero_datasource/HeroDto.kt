@@ -1,5 +1,6 @@
 package com.sx.hero_datasource
 
+import com.google.gson.annotations.SerializedName
 import com.sx.hero_datasource.network.Endpoints.BASE_URL
 import com.sx.hero_domain.Hero
 import com.sx.hero_domain.HeroAttackType
@@ -16,13 +17,13 @@ data class HeroDto(
     val id: Int,
 
     @SerialName("localized_name")
-    val localizedName: String,
+    val localized_name: String,
 
     @SerialName("primary_attr")
-    val primaryAttribute: String,
+    val primary_attr: String,
 
     @SerialName("attack_type")
-    val attackType: String,
+    val attack_type: String,
 
     @SerialName("roles")
     val roles: List<String>,
@@ -34,120 +35,120 @@ data class HeroDto(
     val icon: String,
 
     @SerialName("base_health")
-    val baseHealth: Float,
+    val base_health: Float,
 
     @SerialName("base_health_regen")
-    val baseHealthRegen: Float?,
+    val base_health_regen: Float?,
 
     @SerialName("base_mana")
-    val baseMana: Float,
+    val base_mana: Float,
 
     @SerialName("base_mana_regen")
-    val baseManaRegen: Float?,
+    val base_mana_regen: Float?,
 
     @SerialName("base_armor")
-    val baseArmor: Float,
+    val base_armor: Float,
 
     @SerialName("base_mr")
-    val baseMoveRate: Float,
+    val base_mr: Float,
 
     @SerialName("base_attack_min")
-    val baseAttackMin: Int,
+    val base_attack_min: Int,
 
     @SerialName("base_attack_max")
-    val baseAttackMax: Int,
+    val base_attack_max: Int,
 
     @SerialName("base_str")
-    val baseStr: Int,
+    val base_str: Int,
 
     @SerialName("base_agi")
-    val baseAgi: Int,
+    val base_agi: Int,
 
     @SerialName("base_int")
-    val baseInt: Int,
+    val base_int: Int,
 
     @SerialName("str_gain")
-    val strGain: Float, // Strength gain per lvl
+    val str_gain: Float, // Strength gain per lvl
 
     @SerialName("agi_gain")
-    val agiGain: Float, // Agility gain per lvl
+    val agi_gain: Float, // Agility gain per lvl
 
     @SerialName("int_gain")
-    val intGain: Float, // Intelligence gain per lvl
+    val int_gain: Float, // Intelligence gain per lvl
 
     @SerialName("attack_range")
-    val attackRange: Int,
+    val attack_range: Int,
 
     @SerialName("projectile_speed")
-    val projectileSpeed: Int,
+    val projectile_speed: Int,
 
     @SerialName("attack_rate")
-    val attackRate: Float,
+    val attack_rate: Float,
 
     @SerialName("move_speed")
-    val moveSpeed: Int,
+    val move_speed: Int,
 
     @SerialName("turn_rate")
-    val turnRate: Float? = 0F,
+    val turn_rate: Float? = 0F,
 
     @SerialName("legs")
     val legs: Int, // How many legs does this hero have?
 
     @SerialName("turbo_picks")
-    val turboPicks: Int, // How many times picked for turbo matches?
+    val turbo_picks: Int, // How many times picked for turbo matches?
 
     @SerialName("turbo_wins")
-    val turboWins: Int, // How many times won a turbo match?
+    val turbo_wins: Int, // How many times won a turbo match?
 
     @SerialName("pro_win")
-    val proWins: Int? = 0, // How many times won a pro match?
+    val pro_win: Int? = 0, // How many times won a pro match?
 
     @SerialName("pro_pick")
-    val proPick: Int? = 0, // How many times picked in pro match?
+    val pro_pick: Int? = 0, // How many times picked in pro match?
 
-    @SerialName("1_pick")
+    @SerializedName("1_pick")
     val firstPick: Int, // How many times picked first?
 
-    @SerialName("1_win")
+    @SerializedName("1_win")
     val firstWin: Int, // How many times picked first and won?
 
-    @SerialName("2_pick")
+    @SerializedName("2_pick")
     val secondPick: Int, // How many times picked second?
 
-    @SerialName("2_win")
+    @SerializedName("2_win")
     val secondWin: Int, // How many times picked second and won?
 
-    @SerialName("3_pick")
+    @SerializedName("3_pick")
     val thirdPick: Int, // How many times picked third?
 
-    @SerialName("3_win")
+    @SerializedName("3_win")
     val thirdWin: Int, // How many times picked third and won?
 
-    @SerialName("4_pick")
+    @SerializedName("4_pick")
     val fourthPick: Int, // How many times picked in fourth round?
 
-    @SerialName("4_win")
+    @SerializedName("4_win")
     val fourthWin: Int, // How many times picked in fourth round and won?
 
-    @SerialName("5_pick")
+    @SerializedName("5_pick")
     val fifthPick: Int, // How many times picked fifth?
 
-    @SerialName("5_win")
+    @SerializedName("5_win")
     val fifthWin: Int, // How many times picked fifth and won?
 
-    @SerialName("6_pick")
+    @SerializedName("6_pick")
     val sixthPick: Int, // How many times picked sixth?
 
-    @SerialName("6_win")
+    @SerializedName("6_win")
     val sixthWin: Int, // How many times picked sixth and won?
 
-    @SerialName("7_pick")
+    @SerializedName("7_pick")
     val seventhPick: Int, // How many times picked seventh?
 
-    @SerialName("7_win")
+    @SerializedName("7_win")
     val seventhWin: Int, // How many times picked seventh and won?
 
-    @SerialName("8_pick")
+    @SerializedName("8_pick")
     val eighthPick: Int, // How many times picked eighth round?
 
     @SerialName("8_win")
@@ -157,36 +158,36 @@ data class HeroDto(
 fun HeroDto.toHero(): Hero {
     return Hero(
         id = id,
-        localizedName = localizedName,
-        primaryAttribute = HeroAttribute.getHeroAttrFromAbbreviation(primaryAttribute),
-        attackType = HeroAttackType.getHeroAttackType(attackType),
+        localizedName = localized_name,
+        primaryAttribute = HeroAttribute.getHeroAttrFromAbbreviation(primary_attr),
+        attackType = HeroAttackType.getHeroAttackType(attack_type),
         roles = roles.map { HeroRole.getHeroRole(it) },
         img = "$BASE_URL$img",
         icon = "$BASE_URL$icon",
-        baseHealth = baseHealth,
-        baseHealthRegen = baseHealthRegen,
-        baseMana = baseMana,
-        baseManaRegen = baseManaRegen,
-        baseArmor = baseArmor,
-        baseMoveRate = baseMoveRate,
-        baseAttackMin = baseAttackMin,
-        baseAttackMax = baseAttackMax,
-        baseStr = baseStr,
-        baseAgi = baseAgi,
-        baseInt = baseInt,
-        strGain = strGain,
-        agiGain = agiGain,
-        intGain = intGain,
-        attackRange = attackRange,
-        projectileSpeed = projectileSpeed,
-        attackRate = attackRate,
-        moveSpeed = moveSpeed,
-        turnRate = turnRate,
+        baseHealth = base_health,
+        baseHealthRegen = base_health_regen,
+        baseMana = base_mana,
+        baseManaRegen = base_mana_regen,
+        baseArmor = base_armor,
+        baseMoveRate = base_mr,
+        baseAttackMin = base_attack_min,
+        baseAttackMax = base_attack_max,
+        baseStr = base_str,
+        baseAgi = base_agi,
+        baseInt = base_int,
+        strGain = str_gain,
+        agiGain = agi_gain,
+        intGain = int_gain,
+        attackRange = attack_range,
+        projectileSpeed = projectile_speed,
+        attackRate = attack_rate,
+        moveSpeed = move_speed,
+        turnRate = turn_rate,
         legs = legs,
-        turboPicks = turboPicks,
-        turboWins = turboWins,
-        proWins = proWins ?: 0,
-        proPick = proPick?: 0,
+        turboPicks = turbo_picks,
+        turboWins = turbo_wins,
+        proWins = pro_win ?: 0,
+        proPick = pro_pick ?: 0,
         firstPick = firstPick,
         firstWin = firstWin,
         secondPick = secondPick,

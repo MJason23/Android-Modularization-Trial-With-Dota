@@ -13,4 +13,5 @@ dependencies{
     "implementation"(Ktor.core)
     "implementation"(Ktor.android)
     "implementation"(Ktor.clientSerialization)
+    "implementation"("com.google.code.gson:gson:2.8.9")
 }

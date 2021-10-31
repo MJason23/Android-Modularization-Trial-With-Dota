@@ -23,14 +23,14 @@ class NetworkClientImpl: NetworkClient {
 //        }
     }
 
-    override suspend fun <T : Any> get(url: String): T {
+    override suspend fun <T : Any> get(url: String, typeToken: TypeToken<T>): T {
 
         val requestString = httpClient.get<String> {
             url(url)
         }
         val responseString = requestString
-        val type = object : TypeToken<T>() {}.type
-        return Gson().fromJson(responseString, type)
+        return Gson().fromJson(responseString, typeToken.type)
+//        return Gson().fromJson(responseString) as T
     }
 
     override suspend fun <T : Any> post(url: String): T {
@@ -41,3 +41,6 @@ class NetworkClientImpl: NetworkClient {
         return Gson().fromJson(responseString, type)
     }
 }
+
+inline fun <T> Gson.fromJson(json: String): T =
+    this.fromJson(json, object: TypeToken<T>() {}.type)
