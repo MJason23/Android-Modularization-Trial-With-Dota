@@ -22,4 +22,41 @@ sealed class HeroRole(
     object Pusher : HeroRole(uiValue = "Pusher")
 
     object Unknown : HeroRole(uiValue = "Unknown")
+
+    companion object {
+        fun getHeroRole(uiValue: String): HeroRole {
+            return when (uiValue) {
+                Carry.uiValue -> {
+                    Carry
+                }
+                Escape.uiValue -> {
+                    Escape
+                }
+                Nuker.uiValue -> {
+                    Nuker
+                }
+                Initiator.uiValue -> {
+                    Initiator
+                }
+                Durable.uiValue -> {
+                    Durable
+                }
+                Disabler.uiValue -> {
+                    Disabler
+                }
+                Jungler.uiValue -> {
+                    Jungler
+                }
+                Support.uiValue -> {
+                    Support
+                }
+                Pusher.uiValue -> {
+                    Pusher
+                }
+                else -> {
+                    Unknown
+                }
+            }
+        }
+    }
 }
