@@ -1,4 +1,4 @@
-package com.sx.ui_heroList
+package com.sx.ui_heroDetails
 
 class PlaceHolder {
 }

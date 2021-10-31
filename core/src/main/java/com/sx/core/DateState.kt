@@ -1,4 +1,5 @@
 package com.sx.core
 
-class DateState {
+sealed class DateState<T> {
+
 }

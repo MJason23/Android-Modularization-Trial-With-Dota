@@ -18,17 +18,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

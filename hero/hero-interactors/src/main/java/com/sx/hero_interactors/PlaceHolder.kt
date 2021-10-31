@@ -1,4 +1,4 @@
-package com.sx.hero
+package com.sx.hero_interactors
 
 class PlaceHolder {
 }
